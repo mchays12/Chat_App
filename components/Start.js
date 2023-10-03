@@ -18,9 +18,24 @@ const Start = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <Text style={styles.title}>START TALK'N</Text>
-        <View style={styles.inputContainer}>
+      <ImageBackground
+        source={image}
+        resizeMode="cover"
+        style={styles.image}
+        accessible={true}
+        accessibilityLabel="Background Image"
+        accessibilityRole="image"
+      >
+        <Text
+          style={styles.title}
+          accessibilityRole="header"
+        >
+          START TALK'N
+        </Text>
+        <View
+          style={styles.inputContainer}
+        >
+
           {/* Input field for user's nickname */}
           <TextInput
             style={styles.textInput}
@@ -28,9 +43,21 @@ const Start = ({ navigation }) => {
             onChangeText={setName}
             placeholder='Type username here'
             placeholderTextColor={'#8A95A5'}
+            accessible={true}
+            accessibilityLabel="Name input field"
+            accessibilityHint="Enter your name here."
+            accessibilityRole="textbox"
           />
+
           {/* Background color selection buttons */}
-          <Text style={styles.colorSelectorText}>Choose Background Color</Text>
+          <Text
+            style={styles.colorSelectorText}
+            accessible={true}
+            accessibilityLabel="Background selection"
+            accessibilityRole="menu"
+          >
+            Choose Background Color
+          </Text>
           <View style={styles.colorSelectorContainer}>
             <TouchableOpacity
               style={[
@@ -39,6 +66,9 @@ const Start = ({ navigation }) => {
                 { backgroundColor: backgroundColors.a },
               ]}
               onPress={() => setColor(backgroundColors.a)}
+              accessible={true}
+              accessibilityLabel="Color1"
+              accessibilityRole="menuitem"
             ></TouchableOpacity>
             <TouchableOpacity
               style={[
@@ -47,6 +77,9 @@ const Start = ({ navigation }) => {
                 { backgroundColor: backgroundColors.b },
               ]}
               onPress={() => setColor(backgroundColors.b)}
+              accessible={true}
+              accessibilityLabel="Color2"
+              accessibilityRole="menuitem"
             ></TouchableOpacity>
             <TouchableOpacity
               style={[
@@ -55,6 +88,9 @@ const Start = ({ navigation }) => {
                 { backgroundColor: backgroundColors.c },
               ]}
               onPress={() => setColor(backgroundColors.c)}
+              accessible={true}
+              accessibilityLabel="Color3"
+              accessibilityRole="menuitem"
             ></TouchableOpacity>
             <TouchableOpacity
               style={[
@@ -63,6 +99,9 @@ const Start = ({ navigation }) => {
                 { backgroundColor: backgroundColors.d },
               ]}
               onPress={() => setColor(backgroundColors.d)}
+              accessible={true}
+              accessibilityLabel="Color4"
+              accessibilityRole="menuitem"
             ></TouchableOpacity>
           </View>
           {/* Navigate to chat button */}
@@ -70,7 +109,12 @@ const Start = ({ navigation }) => {
             onPress={() => navigation.navigate('Chat', {
               name: name,
               color: color
-            })}>
+            })}
+            accessible={true}
+            accessibilityLabel="Start Chatting Button"
+            accessibilityHint="Navigates to chat screen"
+            accessibilityRole='button'
+          >
             <Text
               style={styles.buttonText}
             > Let's go chat! </Text>
