@@ -35,7 +35,7 @@ const Start = ({ navigation }) => {
             <TouchableOpacity
               style={[
                 styles.circles,
-                color === styles.selectedCircle,
+                color === backgroundColors.a && styles.selectedCircle,
                 { backgroundColor: backgroundColors.a },
               ]}
               onPress={() => setColor(backgroundColors.a)}
@@ -43,7 +43,7 @@ const Start = ({ navigation }) => {
             <TouchableOpacity
               style={[
                 styles.circles,
-                color === styles.selectedCircle,
+                color === backgroundColors.b && styles.selectedCircle,
                 { backgroundColor: backgroundColors.b },
               ]}
               onPress={() => setColor(backgroundColors.b)}
@@ -51,7 +51,7 @@ const Start = ({ navigation }) => {
             <TouchableOpacity
               style={[
                 styles.circles,
-                color === styles.selectedCircle,
+                color === backgroundColors.c && styles.selectedCircle,
                 { backgroundColor: backgroundColors.c },
               ]}
               onPress={() => setColor(backgroundColors.c)}
@@ -59,7 +59,7 @@ const Start = ({ navigation }) => {
             <TouchableOpacity
               style={[
                 styles.circles,
-                color === styles.selectedCircle,
+                color === backgroundColors.d && styles.selectedCircle,
                 { backgroundColor: backgroundColors.d },
               ]}
               onPress={() => setColor(backgroundColors.d)}
@@ -67,8 +67,13 @@ const Start = ({ navigation }) => {
           </View>
           {/* Navigate to chat button */}
           <TouchableOpacity style={styles.button}
-            onPress={() => navigation.navigate('Chat', { name: name, color: color })}>
-            <Text> Let's go chat! </Text>
+            onPress={() => navigation.navigate('Chat', {
+              name: name,
+              color: color
+            })}>
+            <Text
+              style={styles.buttonText}
+            > Let's go chat! </Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -105,10 +110,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '300',
     color: '#757083',
-    padding: 5,
-    borderWidth: 1,
+    textAlign: 'center',
+    padding: 3,
+    borderWidth: 1.5,
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    borderRadius: 5,
 
   },
 
@@ -131,19 +138,23 @@ const styles = StyleSheet.create({
   colorSelectorText: {
     fontSize: 14,
     fontWeight: '600',
-    alignContent: 'center',
+    textAlign: 'center',
     padding: 2,
-    marginLeft: 10
+
   },
   button: {
     flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
-    padding: 10,
-    marginLeft: 35
-
-
-  }
+    padding: 0,
+    backgroundColor: '#757083',
+    borderRadius: 10
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 })
 
 export default Start;
