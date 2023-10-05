@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { StyleSheet, View, Text, Button, TextInput, ImageBackground, TouchableOpacity } from 'react-native';
+import { getAuth, signInAnonymously } from "firebase/auth";
+
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(["AsyncStorage has been extracted from"]);
+
+import { StyleSheet, View, Text, TouchableOpacity, Alert, ImageBackground, TextInput } from "react-native"
 
 //imports image into background 
 const image = require('../assets/background-image.png')
@@ -12,6 +17,18 @@ const backgroundColors = {
 }
 
 const Start = ({ navigation }) => {
+  const auth = getAuth();
+  const signInUser = () => {
+    signInAnonymously(auth)
+      .then(result => {
+        navigation.navigate("Chat", { userID: result.user.uid });
+        Alert.alert("Signed in Successfully!")
+      })
+      .catch((error) => {
+        Alert.alert("Unable to sign in, try again later")
+      })
+  }
+
   const [name, setName] = useState('');
   const [color, setColor] = useState(backgroundColors);
 
@@ -46,7 +63,7 @@ const Start = ({ navigation }) => {
             accessible={true}
             accessibilityLabel="Name input field"
             accessibilityHint="Enter your name here."
-            accessibilityRole="textbox"
+
           />
 
           {/* Background color selection buttons */}
@@ -106,10 +123,7 @@ const Start = ({ navigation }) => {
           </View>
           {/* Navigate to chat button */}
           <TouchableOpacity style={styles.button}
-            onPress={() => navigation.navigate('Chat', {
-              name: name,
-              color: color
-            })}
+            onPress={signInUser}
             accessible={true}
             accessibilityLabel="Start Chatting Button"
             accessibilityHint="Navigates to chat screen"
