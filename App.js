@@ -43,7 +43,7 @@ const App = () => {
         <Stack.Screen
           name='Chat'
         >
-          {props => <Chat db={db} {...props} />}
+          {(props) => <Chat db={db} {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
 
