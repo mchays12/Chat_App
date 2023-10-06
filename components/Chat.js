@@ -58,7 +58,8 @@ const Chat = ({ route, navigation, db }) => {
         onSend={messages => onSend(messages)}
         user={{
           _id: userID,
-          name: name
+          name: name,
+
 
         }} />
       {/* makes sure that the keyboard functions properly */}

@@ -20,14 +20,19 @@ const Start = ({ navigation }) => {
   const auth = getAuth();
   const signInUser = () => {
     signInAnonymously(auth)
-      .then(result => {
-        navigation.navigate("Chat", { userID: result.user.uid });
-        Alert.alert("Signed in Successfully!")
+      //get result from promise with temp user data
+      .then((result) => {
+        if (result.user.uid) {
+          navigation.navigate("Chat", { userID: result.user.uid, name: name, color: color });
+          Alert.alert("Signed in Successfully!");
+        } else {
+          Alert.alert("Something went wrong, try again!");
+        }
       })
       .catch((error) => {
-        Alert.alert("Unable to sign in, try again later")
-      })
-  }
+        Alert.alert("We could not sign you in. Try again later");
+      });
+  };
 
   const [name, setName] = useState('');
   const [color, setColor] = useState(backgroundColors);
