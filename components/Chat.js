@@ -28,7 +28,7 @@ const Chat = ({ route, navigation, db }) => {
     />
   }
   useEffect(() => {
-    navigation.setOptions({ title: name })
+    navigation.setOptions({ title: name });
     const q = query(collection(db, "messages"), orderBy("createdAt", "desc"));
     const unsubMessages = onSnapshot(q, (docs) => {
       let newMessages = [];
