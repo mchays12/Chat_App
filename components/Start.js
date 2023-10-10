@@ -17,12 +17,18 @@ const backgroundColors = {
 }
 
 const Start = ({ navigation }) => {
+  const [name, setName] = useState('');
+  const [color, setColor] = useState(backgroundColors);
+  // Initialize Firebase authentication
   const auth = getAuth();
+
   const signInUser = () => {
+    // Sign in anonymously using Firebase
     signInAnonymously(auth)
       //get result from promise with temp user data
       .then((result) => {
         if (result.user.uid) {
+          // Navigate to the Chat screen with user information
           navigation.navigate("Chat", { userID: result.user.uid, name: name, color: color });
           Alert.alert("Signed in Successfully!");
         } else {
@@ -34,8 +40,7 @@ const Start = ({ navigation }) => {
       });
   };
 
-  const [name, setName] = useState('');
-  const [color, setColor] = useState(backgroundColors);
+
 
 
   return (
@@ -147,14 +152,14 @@ const Start = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+
+
   },
   inputContainer: {
-    flex: 1,
+
     backgroundColor: '#F0F8FF',
-    padding: '12%',
-    alignSelf: 'center',
+    padding: '9%',
+
     borderRadius: 10
   },
   title: {
@@ -188,15 +193,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: 10,
     marginBottom: 10,
+    padding: 5,
+
   },
+
   selectedCircle: {
     borderWidth: 2,
     borderColor: '#FFFFFF',
   },
   colorSelectorContainer: {
-    flex: 1,
+
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    alignContent: 'center'
   },
   colorSelectorText: {
     fontSize: 14,
@@ -206,12 +215,10 @@ const styles = StyleSheet.create({
 
   },
   button: {
-    flex: 1,
-    alignContent: 'center',
-    justifyContent: 'center',
-    padding: 0,
     backgroundColor: '#757083',
+    padding: 10,
     borderRadius: 10
+
   },
   buttonText: {
     color: '#FFFFFF',
