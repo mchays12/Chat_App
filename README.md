@@ -28,25 +28,20 @@ Ensure Node.js 16.19.0 or a compatible version is installed:
    - npm alias default 16.19.0
    - Install Expo CLI globally:
 
-Copy code
-npm install -g expo-cli
+Next, install expo CLI on your machine:
+   - npm install -g expo-cli
 
 Create an Expo account at Expo and install the Expo Go app on your smartphone or set up a virtual machine on your computer.
 
 Create a new Chat App project with React Native:
-
-Copy code
-npx create-expo-app ChatApp --template
+   - npx create-expo-app ChatApp --template
 
 Start Expo:
-
-Copy code
-npm start
+   - npm start
 
 To resolve image-related issues, run:
+   - npm i whatwg-fetch@3.6.2
 
-Copy code
-npm i whatwg-fetch@3.6.2
 Connect your smartphone (install Expo Go app) or use an emulator to preview Chat App.
 
 Step 2: Database Configuration:
@@ -56,28 +51,25 @@ If you want to use your own database, follow these steps:
 Create a new database on Firebase (signup required).
 
 Install Firebase:
+   - npm i firebase
 
-Copy code
-npm i firebase
 Navigate to the Firebase console, create a new project, and set up Firestore Database in production mode.
 
 Adjust Firestore rules to allow read and write:
+   - allow read, write: if true;
 
-Copy code
-allow read, write: if true;
 Create a web app and copy the Firebase configuration code (starts with const firebaseConfig =) into App.js, replacing the existing code.
 
 Step 3: Android Studio Integration:
 
 To unlock all features, install these libraries:
+   - expo install expo-image-picker
+   - expo install react-native-maps
+   - expo install expo-location
+   - expo install expo-media-library
 
-Copy code
-expo install expo-image-picker
-expo install react-native-maps
-expo install expo-location
-expo install expo-media-library
 GitHub Repository
-Find the Chat App source code on GitHub.
+https://github.com/mchays12/hello-world
 
 
 
