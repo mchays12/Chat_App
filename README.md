@@ -20,31 +20,37 @@ The Chat App is a mobile application developed with React Native, designed to de
 
 Follow these steps to set up and run Chat App on your device:
 
+Step 1: Getting code and expo app running:
+
 Ensure Node.js 16.19.0 or a compatible version is installed:
-   npm install 16.19.0
-   npm use 16.19.0
-   npm alias default 16.19.0
-Install Expo CLI globally:
+   - npm install 16.19.0
+   - npm use 16.19.0
+   - npm alias default 16.19.0
+   - Install Expo CLI globally:
 
 Copy code
 npm install -g expo-cli
+
 Create an Expo account at Expo and install the Expo Go app on your smartphone or set up a virtual machine on your computer.
 
 Create a new Chat App project with React Native:
 
 Copy code
 npx create-expo-app ChatApp --template
+
 Start Expo:
 
 Copy code
 npm start
+
 To resolve image-related issues, run:
 
 Copy code
 npm i whatwg-fetch@3.6.2
 Connect your smartphone (install Expo Go app) or use an emulator to preview Chat App.
 
-Database Configuration
+Step 2: Database Configuration:
+
 If you want to use your own database, follow these steps:
 
 Create a new database on Firebase (signup required).
@@ -61,7 +67,8 @@ Copy code
 allow read, write: if true;
 Create a web app and copy the Firebase configuration code (starts with const firebaseConfig =) into App.js, replacing the existing code.
 
-Android Studio Integration
+Step 3: Android Studio Integration:
+
 To unlock all features, install these libraries:
 
 Copy code
@@ -72,12 +79,6 @@ expo install expo-media-library
 GitHub Repository
 Find the Chat App source code on GitHub.
 
-License
-This project is licensed under the MIT License.
 
-Contributions
-Contributions to Chat App are welcome! Please check the Contribution Guidelines for details on how to get involved.
-
-Enjoy Chat App, your ultimate chat companion!
 
  
